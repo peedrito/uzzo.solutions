@@ -1666,3 +1666,18 @@ h3.h3-new-desktop {
         align-items: center;
     }
 }
+
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 10px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cta h2 {
+        font-size: 1.5em;
+    }
+}
