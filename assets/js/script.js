@@ -227,19 +227,27 @@ const translations = {
     submitButton: "Enviar",
     placeholderEmail: "Digite seu email",
     footer: {
-        subscribe: "SE INSCREVA PARA RECEBER ATUALIZAÇÕES",
-        contactUs: "Mande um e-mail para info@uzzo.solutions",
-        address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
-        social: "Siga-nos nas redes sociais",
-        mobileSubscribe: "RECEBA PROMOÇÕES E NOTÍCIAS!",
-        contactInfo: "Mande um e-mail para info@uzzo.solutions",
-        footerEmail: "info@uzzo.solutions",
-        phone: "(64) 98171-8495",
-        year: "Uzzo Solutions - 2024",
-        links: ["Início", "Produtos e serviços", "Trabalhos feitos", "Quem somos", "Contato"]
+      subscribe: "SE INSCREVA PARA RECEBER ATUALIZAÇÕES",
+      contactUs: "Mande um e-mail para info@uzzo.solutions",
+      address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
+      social: "Siga-nos nas redes sociais",
+      mobileSubscribe: "RECEBA PROMOÇÕES E NOTÍCIAS!",
+      contactInfo: "Mande um e-mail para info@uzzo.solutions",
+      footerEmail: "info@uzzo.solutions",
+      phone: "(64) 98171-8495",
+      year: "Uzzo Solutions - 2024",
+      links: [
+        "Início",
+        "Produtos e serviços",
+        "Trabalhos feitos",
+        "Quem somos",
+        "Contato",
+      ],
     },
     heroCtaButton: "Saiba mais →",
     aboutCtaButton: "Conhecer equipe →",
+    trustedtitle: "Empresas que confiam em nós",
+    heroCtaButton: "Saiba mais →",
   },
   en: {
     translating:
@@ -293,19 +301,27 @@ const translations = {
     submitButton: "Send",
     placeholderEmail: "Enter your email",
     footer: {
-        subscribe: "SUBSCRIBE FOR UPDATES",
-        contactUs: "Send an email to info@uzzo.solutions",
-        address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
-        social: "Follow us on social media",
-        mobileSubscribe: "RECEIVE PROMOTIONS AND NEWS!",
-        contactInfo: "Send an email to info@uzzo.solutions",
-        footerEmail: "info@uzzo.solutions",
-        phone: "(64) 98171-8495",
-        year: "Uzzo Solutions - 2024",
-        links: ["Home", "Products and Services", "Portfolio", "About Us", "Contact"]
+      subscribe: "SUBSCRIBE FOR UPDATES",
+      contactUs: "Send an email to info@uzzo.solutions",
+      address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
+      social: "Follow us on social media",
+      mobileSubscribe: "RECEIVE PROMOTIONS AND NEWS!",
+      contactInfo: "Send an email to info@uzzo.solutions",
+      footerEmail: "info@uzzo.solutions",
+      phone: "(64) 98171-8495",
+      year: "Uzzo Solutions - 2024",
+      links: [
+        "Home",
+        "Products and Services",
+        "Portfolio",
+        "About Us",
+        "Contact",
+      ],
     },
     heroCtaButton: "Learn more →",
     aboutCtaButton: "Meet the team →",
+    trustedtitle: "Companies that trust us",
+    heroCtaButton: "Learn more →",
   },
   es: {
     translating:
@@ -356,233 +372,260 @@ const translations = {
         "Al enviar, será redirigido a su aplicación de correo.",
       submitButton: "Enviar",
     },
-        submitButton: "Enviar",
-        placeholderEmail: "Introduce tu correo",
-        footer: {
-            subscribe: "SUSCRÍBASE PARA RECIBIR ACTUALIZACIONES",
-            contactUs: "Envía un correo a info@uzzo.solutions",
-            address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
-            social: "Síguenos en redes sociales",
-            mobileSubscribe: "¡RECIBE PROMOCIONES Y NOTICIAS!",
-            contactInfo: "Envía un correo a info@uzzo.solutions",
-            footerEmail: "info@uzzo.solutions",
-            phone: "(64) 98171-8495",
-            year: "Uzzo Solutions - 2024",
-            links: ["Inicio", "Productos y servicios", "Trabajos realizados", "Quiénes somos", "Contacto"]
-        },
-        heroCtaButton: "Saber más →",
+    submitButton: "Enviar",
+    placeholderEmail: "Introduce tu correo",
+    footer: {
+      subscribe: "SUSCRÍBASE PARA RECIBIR ACTUALIZACIONES",
+      contactUs: "Envía un correo a info@uzzo.solutions",
+      address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
+      social: "Síguenos en redes sociales",
+      mobileSubscribe: "¡RECIBE PROMOCIONES Y NOTICIAS!",
+      contactInfo: "Envía un correo a info@uzzo.solutions",
+      footerEmail: "info@uzzo.solutions",
+      phone: "(64) 98171-8495",
+      year: "Uzzo Solutions - 2024",
+      links: [
+        "Inicio",
+        "Productos y servicios",
+        "Trabajos realizados",
+        "Quiénes somos",
+        "Contacto",
+      ],
+    },
+    heroCtaButton: "Saber más →",
     aboutCtaButton: "Conocer equipo →",
+    trustedtitle: "Empresas que confían en nosotros",
+    heroCtaButton: "Saber más →",
   },
 };
 document.addEventListener("DOMContentLoaded", () => {
-    const languageOptions = document.getElementById("language-options");
-    const selectedLanguage = document.getElementById("selected-language");
-    const currentFlag = document.getElementById("current-flag");
-  
-    if (selectedLanguage) {
-      selectedLanguage.addEventListener("click", () => {
-        if (languageOptions) {
-          languageOptions.style.display =
-            languageOptions.style.display === "block" ? "none" : "block";
-        } else {
-          console.error("Elemento 'language-options' não encontrado.");
-        }
-      });
-    } else {
-      console.error("Elemento 'selected-language' não encontrado.");
-    }
-  
-    if (languageOptions) {
-      languageOptions.addEventListener("click", (e) => {
-        const lang = e.target.closest("li")?.dataset.lang;
-        if (lang) {
-          changeLanguage(lang);
-        }
-      });
-    } else {
-      console.error(
-        "Elemento 'language-options' não encontrado para adicionar evento de clique."
-      );
-    }
-  
-    const changeLanguage = (language) => {
-      const selectedOption = document.querySelector(
-        `[data-lang="${language}"] img`
-      );
-      if (currentFlag && selectedOption) {
-        currentFlag.src = selectedOption.src;
-      }
-  
-      showTranslatingMessage(language);
-      updateTexts(language);
-  
+  const languageOptions = document.getElementById("language-options");
+  const selectedLanguage = document.getElementById("selected-language");
+  const currentFlag = document.getElementById("current-flag");
+
+  if (selectedLanguage) {
+    selectedLanguage.addEventListener("click", () => {
       if (languageOptions) {
-        languageOptions.style.display = "none";
-      }
-    };
-  
-    const showTranslatingMessage = (language) => {
-      const message = translations[language]?.translating;
-      if (message) {
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("translation-message");
-        messageDiv.innerText = message;
-        document.body.appendChild(messageDiv);
-  
-        setTimeout(() => {
-          messageDiv.remove();
-        }, 3000);
-      }
-    };
-  
-    const updateTexts = (language) => {
-      const menuLinks = document.querySelectorAll(".menu li a");
-      menuLinks.forEach((link, index) => {
-        if (translations[language]?.menu[index]) {
-          link.innerHTML = translations[language].menu[index];
-        }
-      });
-  
-      const heroTitle = document.querySelector(".hero-content h1");
-      const heroDescription = document.querySelector(".hero-content p");
-      const contactButton = document.querySelector(".contact-button");
-      const heroCtaButton = document.getElementById("hero-cta-button");
-      const aboutCtaButton = document.getElementById("about-cta-button");
-  
-      if (heroTitle && heroDescription && contactButton) {
-        heroTitle.innerHTML =
-          translations[language]?.heroTitle || heroTitle.innerHTML;
-        heroDescription.innerHTML =
-          translations[language]?.heroDescription || heroDescription.innerHTML;
-        contactButton.innerText =
-          translations[language]?.contactButton || contactButton.innerText;
-      }
-  
-      if (heroCtaButton) {
-        heroCtaButton.innerText =
-          translations[language]?.heroCtaButton || heroCtaButton.innerText;
-      }
-  
-      if (aboutCtaButton) {
-        aboutCtaButton.innerText =
-          translations[language]?.aboutCtaButton || aboutCtaButton.innerText;
-      }
-  
-      const testimonialsTitle = document.querySelector(".testimonials h2");
-      const testimonialsDescription = document.querySelector(".testimonials p");
-      const testimonialsTexts = document.querySelectorAll(".testimonial p");
-      if (testimonialsTitle && testimonialsDescription) {
-        testimonialsTitle.innerText =
-          translations[language]?.testimonialsTitle ||
-          testimonialsTitle.innerText;
-        testimonialsDescription.innerText =
-          translations[language]?.testimonialsDescription ||
-          testimonialsDescription.innerText;
-      }
-      testimonialsTexts.forEach((testimonial, index) => {
-        if (translations[language]?.testimonials[index]) {
-          testimonial.innerText = translations[language].testimonials[index];
-        }
-      });
-  
-      const servicesTitle = document.querySelector(".services h2");
-      const servicesDescription = document.querySelector(".services p");
-      if (servicesTitle && servicesDescription) {
-        servicesTitle.innerText =
-          translations[language]?.servicesTitle || servicesTitle.innerText;
-        servicesDescription.innerText =
-          translations[language]?.servicesDescription ||
-          servicesDescription.innerText;
-      }
-  
-      const serviceCards = document.querySelectorAll(".service-card h3");
-      const serviceDescriptions = document.querySelectorAll(".service-card p");
-      serviceCards.forEach((card, index) => {
-        if (translations[language]?.serviceCards[index]) {
-          card.innerText = translations[language].serviceCards[index];
-        }
-      });
-      serviceDescriptions.forEach((desc, index) => {
-        if (translations[language]?.serviceDescriptions[index]) {
-          desc.innerText = translations[language].serviceDescriptions[index];
-        }
-      });
-  
-      const aboutTitle = document.querySelector(".about-content h2");
-      const aboutDescription = document.querySelector(".about-content p");
-      if (aboutTitle && aboutDescription) {
-        aboutTitle.innerText =
-          translations[language]?.aboutTitle || aboutTitle.innerText;
-        aboutDescription.innerText =
-          translations[language]?.aboutDescription || aboutDescription.innerText;
-      }
-  
-      const ctaTitle = document.querySelector(".cta h2");
-      const ctaContact = document.querySelector(".cta-contact");
-      if (ctaTitle && ctaContact) {
-        ctaTitle.innerHTML =
-          translations[language]?.ctaTitle || ctaTitle.innerHTML;
-        ctaContact.innerText =
-          translations[language]?.ctaContact || ctaContact.innerText;
-      }
-  
-      // Atualizar links do footer
-      const footerLinks = document.querySelectorAll(".footer-links ul li a");
-      if (footerLinks && translations[language]?.footer?.links) {
-        footerLinks.forEach((link, index) => {
-          if (translations[language].footer.links[index]) {
-            link.innerText = translations[language].footer.links[index];
-          }
-        });
-      }
-  
-      const footerSubscribeDesktop = document.querySelector(
-        ".footer-desktop .footer-subscribe h3"
-      );
-      const footerSubscribeMobile = document.querySelector(
-        ".footer-mobile .footer-subscribe h3"
-      );
-  
-      if (footerSubscribeDesktop) {
-        footerSubscribeDesktop.innerText =
-          translations[language]?.footer?.subscribe ||
-          footerSubscribeDesktop.innerText;
-      }
-      if (footerSubscribeMobile) {
-        footerSubscribeMobile.innerText =
-          translations[language]?.footer?.mobileSubscribe ||
-          footerSubscribeMobile.innerText;
-      }
-    };
-  
-    // Inicializar com o idioma padrão (Português)
-    updateTexts("pt");
-  });
-  
-  
-  // Pop-up de construção em andamento
-  document.addEventListener("DOMContentLoaded", () => {
-    const aboutCtaButton = document.getElementById("about-cta-button");
-    const popup = document.getElementById("construction-popup");
-    const closePopupButton = document.getElementById("close-popup");
-  
-    if (aboutCtaButton) {
-      aboutCtaButton.addEventListener("click", (e) => {
-        e.preventDefault(); // Impede o link de navegar
-        popup.style.display = "flex"; // Exibe o pop-up
-      });
-    }
-  
-    if (closePopupButton) {
-      closePopupButton.addEventListener("click", () => {
-        popup.style.display = "none"; // Fecha o pop-up
-      });
-    }
-  
-    // Fechar o pop-up ao clicar fora dele
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) {
-        popup.style.display = "none";
+        languageOptions.style.display =
+          languageOptions.style.display === "block" ? "none" : "block";
+      } else {
+        console.error("Elemento 'language-options' não encontrado.");
       }
     });
+  } else {
+    console.error("Elemento 'selected-language' não encontrado.");
+  }
+
+  if (languageOptions) {
+    languageOptions.addEventListener("click", (e) => {
+      const lang = e.target.closest("li")?.dataset.lang;
+      if (lang) {
+        changeLanguage(lang);
+      }
+    });
+  } else {
+    console.error(
+      "Elemento 'language-options' não encontrado para adicionar evento de clique."
+    );
+  }
+
+  const changeLanguage = (language) => {
+    const selectedOption = document.querySelector(
+      `[data-lang="${language}"] img`
+    );
+    if (currentFlag && selectedOption) {
+      currentFlag.src = selectedOption.src;
+    }
+
+    showTranslatingMessage(language);
+    updateTexts(language);
+
+    if (languageOptions) {
+      languageOptions.style.display = "none";
+    }
+  };
+
+  const showTranslatingMessage = (language) => {
+    const message = translations[language]?.translating;
+    if (message) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("translation-message");
+      messageDiv.innerText = message;
+      document.body.appendChild(messageDiv);
+
+      setTimeout(() => {
+        messageDiv.remove();
+      }, 3000);
+    }
+  };
+
+  const updateTexts = (language) => {
+    const menuLinks = document.querySelectorAll(".menu li a");
+    menuLinks.forEach((link, index) => {
+      if (translations[language]?.menu[index]) {
+        link.innerHTML = translations[language].menu[index];
+      }
+    });
+
+    const heroTitle = document.querySelector(".hero-content h1");
+    const heroDescription = document.querySelector(".hero-content p");
+    const contactButton = document.querySelector(".contact-button");
+    const heroCtaButton = document.getElementById("hero-cta-button");
+    const aboutCtaButton = document.getElementById("about-cta-button");
+    const trustedTitle = document.querySelector(".trusted-title");
+
+    // Traduzir botão "Saiba mais" desktop
+    const saibaMaisButtons = document.querySelectorAll(".saiba-mais");
+    saibaMaisButtons.forEach((button) => {
+      button.innerText =
+        translations[language]?.heroCtaButton || button.innerText;
+    });
+
+    // Traduzir botão "Saiba mais" mobile
+    const mobileButtons = document.querySelectorAll(".mobile-button");
+    mobileButtons.forEach((button) => {
+      button.innerText =
+        translations[language]?.heroCtaButton || button.innerText;
+    });
+
+    if (trustedTitle) {
+      trustedTitle.innerText =
+        translations[language]?.trustedtitle || trustedTitle.innerText;
+    }
+
+    if (heroTitle && heroDescription && contactButton) {
+      heroTitle.innerHTML =
+        translations[language]?.heroTitle || heroTitle.innerHTML;
+      heroDescription.innerHTML =
+        translations[language]?.heroDescription || heroDescription.innerHTML;
+      contactButton.innerText =
+        translations[language]?.contactButton || contactButton.innerText;
+    }
+
+    if (heroCtaButton) {
+      heroCtaButton.innerText =
+        translations[language]?.heroCtaButton || heroCtaButton.innerText;
+    }
+
+    if (aboutCtaButton) {
+      aboutCtaButton.innerText =
+        translations[language]?.aboutCtaButton || aboutCtaButton.innerText;
+    }
+
+    const testimonialsTitle = document.querySelector(".testimonials h2");
+    const testimonialsDescription = document.querySelector(".testimonials p");
+    const testimonialsTexts = document.querySelectorAll(".testimonial p");
+    if (testimonialsTitle && testimonialsDescription) {
+      testimonialsTitle.innerText =
+        translations[language]?.testimonialsTitle ||
+        testimonialsTitle.innerText;
+      testimonialsDescription.innerText =
+        translations[language]?.testimonialsDescription ||
+        testimonialsDescription.innerText;
+    }
+    testimonialsTexts.forEach((testimonial, index) => {
+      if (translations[language]?.testimonials[index]) {
+        testimonial.innerText = translations[language].testimonials[index];
+      }
+    });
+
+    const servicesTitle = document.querySelector(".services h2");
+    const servicesDescription = document.querySelector(".services p");
+    if (servicesTitle && servicesDescription) {
+      servicesTitle.innerText =
+        translations[language]?.servicesTitle || servicesTitle.innerText;
+      servicesDescription.innerText =
+        translations[language]?.servicesDescription ||
+        servicesDescription.innerText;
+    }
+
+    const serviceCards = document.querySelectorAll(".service-card h3");
+    const serviceDescriptions = document.querySelectorAll(".service-card p");
+    serviceCards.forEach((card, index) => {
+      if (translations[language]?.serviceCards[index]) {
+        card.innerText = translations[language].serviceCards[index];
+      }
+    });
+    serviceDescriptions.forEach((desc, index) => {
+      if (translations[language]?.serviceDescriptions[index]) {
+        desc.innerText = translations[language].serviceDescriptions[index];
+      }
+    });
+
+    const aboutTitle = document.querySelector(".about-content h2");
+    const aboutDescription = document.querySelector(".about-content p");
+    if (aboutTitle && aboutDescription) {
+      aboutTitle.innerText =
+        translations[language]?.aboutTitle || aboutTitle.innerText;
+      aboutDescription.innerText =
+        translations[language]?.aboutDescription || aboutDescription.innerText;
+    }
+
+    const ctaTitle = document.querySelector(".cta h2");
+    const ctaContact = document.querySelector(".cta-contact");
+    if (ctaTitle && ctaContact) {
+      ctaTitle.innerHTML =
+        translations[language]?.ctaTitle || ctaTitle.innerHTML;
+      ctaContact.innerText =
+        translations[language]?.ctaContact || ctaContact.innerText;
+    }
+
+    // Atualizar links do footer
+    const footerLinks = document.querySelectorAll(".footer-links ul li a");
+    if (footerLinks && translations[language]?.footer?.links) {
+      footerLinks.forEach((link, index) => {
+        if (translations[language].footer.links[index]) {
+          link.innerText = translations[language].footer.links[index];
+        }
+      });
+    }
+
+    const footerSubscribeDesktop = document.querySelector(
+      ".footer-desktop .footer-subscribe h3"
+    );
+    const footerSubscribeMobile = document.querySelector(
+      ".footer-mobile .footer-subscribe h3"
+    );
+
+    if (footerSubscribeDesktop) {
+      footerSubscribeDesktop.innerText =
+        translations[language]?.footer?.subscribe ||
+        footerSubscribeDesktop.innerText;
+    }
+    if (footerSubscribeMobile) {
+      footerSubscribeMobile.innerText =
+        translations[language]?.footer?.mobileSubscribe ||
+        footerSubscribeMobile.innerText;
+    }
+  };
+
+  // Inicializar com o idioma padrão (Português)
+  updateTexts("pt");
+});
+
+// Pop-up de construção em andamento
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutCtaButton = document.getElementById("about-cta-button");
+  const popup = document.getElementById("construction-popup");
+  const closePopupButton = document.getElementById("close-popup");
+
+  if (aboutCtaButton) {
+    aboutCtaButton.addEventListener("click", (e) => {
+      e.preventDefault(); // Impede o link de navegar
+      popup.style.display = "flex"; // Exibe o pop-up
+    });
+  }
+
+  if (closePopupButton) {
+    closePopupButton.addEventListener("click", () => {
+      popup.style.display = "none"; // Fecha o pop-up
+    });
+  }
+
+  // Fechar o pop-up ao clicar fora dele
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
   });
+});
