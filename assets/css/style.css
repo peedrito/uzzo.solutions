@@ -9,6 +9,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #000;
     color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Estilos Globais */
@@ -195,12 +199,13 @@ nav {
 }
 
 .hero-content p {
-    font-size: 1.2em;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: #b0b0b0;
     max-width: 800px; /* Aumente este valor para expandir o parágrafo */
     width: 100%; /* Permite que o parágrafo ocupe até a largura total disponível */
     margin: 10px auto 30px;
     line-height: 1.5;
+    text-align: center;
 }
 
 /* Botão de Ação */
@@ -695,7 +700,7 @@ nav {
     font-size: 4em;
     text-align: center;
     margin: 0 auto;
-    max-width: 800px;
+    width: auto;
     font-weight: superbold;
 }
 
@@ -839,7 +844,7 @@ nav {
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 50px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
