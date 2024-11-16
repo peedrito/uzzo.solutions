@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzzo Solutions</title>
+    <link rel="icon" href="/assets/images/uzzosolutions/head.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/assets/images/uzzosolutions/logo-uzzo.png" alt="Logo UZZO" style="width: 100px; height: auto;">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#feedbacks">Feedbacks</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#quem-somos">Quem somos</a></li>
+            </ul>
+            <div class="contact-button-menu">
+                <a href="#contato" class="contact-button">Fale conosco!</a>
+            </div>
+            <!-- Alternância de Idioma -->
+            <div class="language-switch">
+                <div class="language-selector">
+                    <div class="selected-language" id="selected-language">
+                        <img src="/assets/images/languages/brasil.png" alt="Português" id="current-flag" />
+                    </div>
+                    <ul class="language-options" id="language-options">
+                        <li data-lang="pt">
+                            <img src="/assets/images/languages/brasil.png" alt="Português" />
+                        </li>
+                        <li data-lang="en">
+                            <img src="/assets/images/languages/usa.png" alt="English" />
+                        </li>
+                        <li data-lang="es">
+                            <img src="/assets/images/languages/espanha.png" alt="Español" />
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </nav>
+    </header>
+
+
+    <!-- Envolver todo o conteúdo principal em uma div com classe main-content -->
+    <div class="main-content">
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>Esse é o <span>momento </span> de alcançar <span>seus resultados</span>!</h1>
+                <p>Na UZZO Solutions, não apenas criamos soluções digitais — nós criamos experiências que inspiram,
+                    engajam e transformam.</p>
+                    <a href="#servicos" class="cta-button" id="hero-cta-button">Saiba mais →</a>
+            </div>
+        </section>
+
+
+        <section class="trusted-companies">
+            <h2 class="trusted-title">Empresas que confiam em nós</h2>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <img src="/assets/images/panters/brutadobrejo.png" alt="Empresa 1">
+                    <img src="/assets/images/panters/deby.png" alt="Empresa 2">
+                    <img src="/assets/images/panters/jaianecakes.png" alt="Empresa 3">
+                    <img src="/assets/images/panters/juniorbebidas.png" alt="Empresa 4">
+                    <img src="/assets/images/panters/lojasnacional.png" alt="Empresa 5">
+                    <img src="/assets/images/panters/nacionalonline.png" alt="Empresa 6">
+                    <img src="/assets/images/panters/brutadobrejo.png" alt="Empresa 1">
+                    <img src="/assets/images/panters/deby.png" alt="Empresa 2">
+                    <img src="/assets/images/panters/jaianecakes.png" alt="Empresa 3">
+                    <img src="/assets/images/panters/juniorbebidas.png" alt="Empresa 4">
+                    <img src="/assets/images/panters/lojasnacional.png" alt="Empresa 5">
+                    <img src="/assets/images/panters/nacionalonline.png" alt="Empresa 6">
+                </div>
+            </div>
+        </section>
+
+        <!-- Todo o resto do conteúdo principal da página está dentro de main-content -->
+        <section class="portfolio">
+            <h2 class="animated-title">
+                ㅤㅤㅤㅤㅤㅤ
+            </h2>
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <img src="/assets/images/portfolio/mockup.jpeg" alt="Projeto 1">
+                    <div class="overlay">
+                        <a href="#projeto1" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    <!-- Botão "Saiba mais" para mobile -->
+                    <a href="#projeto1" class="mobile-button">Saiba mais →</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/assets/images/portfolio/mockup2.jpg" alt="Projeto 2">
+                    <div class="overlay">
+                        <a href="#projeto2" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    <!-- Botão "Saiba mais" para mobile -->
+                    <a href="#projeto2" class="mobile-button">Saiba mais →</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/assets/images/portfolio/mockup3.jpg" alt="Projeto 2">
+                    <div class="overlay">
+                        <a href="#projeto2" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    <!-- Botão "Saiba mais" para mobile -->
+                    <a href="#projeto2" class="mobile-button">Saiba mais →</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/assets/images/portfolio/mockup4.jfif" alt="Projeto 2">
+                    <div class="overlay">
+                        <a href="#projeto2" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    <!-- Botão "Saiba mais" para mobile -->
+                    <a href="#projeto2" class="mobile-button">Saiba mais →</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/assets/images/portfolio/mockup5.jpg" alt="Projeto 2">
+                    <div class="overlay">
+                        <a href="#projeto2" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    <!-- Botão "Saiba mais" para mobile -->
+                    <a href="#projeto2" class="mobile-button">Saiba mais →</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/assets/images/portfolio/mockup6.jpg" alt="Projeto 2">
+                    <div class="overlay">
+                        <a href="#projeto2" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    <!-- Botão "Saiba mais" para mobile -->
+                    <a href="#projeto2" class="mobile-button">Saiba mais →</a>
+                </div>
+                <!-- Continue adicionando mais itens de portfólio como necessário -->
+            </div>
+            <h2 class="animated-title">
+                ㅤㅤㅤㅤㅤㅤ
+            </h2>
+        </section>
+        <!-- Continue adicionando mais itens de portfólio como necessário -->
+    </div>
+    </section>
+
+    <section class="testimonials" id="feedbacks">
+        <h2>Avaliações de clientes</h2>
+        <p>Veja o que nossos clientes têm a dizer sobre as soluções que desenvolvemos juntos.</p>
+        <div class="testimonial-wrapper">
+            <div class="testimonial-container" id="testimonial-container">
+                <div class="testimonial">
+                    <img src="/assets/images/fotos-avaliações/pessoa1.jpg" alt="Cliente 1">
+                    <h3>Isabela Fonseca</h3>
+                    <p>"A equipe da Uzzo entendeu exatamente o que precisávamos e transformou nossas ideias em um site
+                        incrível. Profissionalismo e criatividade de sobra!"</p>
+                </div>
+                <div class="testimonial">
+                    <img src="/assets/images/fotos-avaliações/pessoa2.jpg" alt="Cliente 2">
+                    <h3>Mariana R.</h3>
+                    <p>"Usar o sistema da Uzzo fez uma grande diferença no meu dia a dia. Antes, eu perdia muito tempo
+                        com planilhas e controle manual. Agora, consigo visualizar tudo de forma prática e até gerar
+                        relatórios em poucos cliques. Recomendo para qualquer negócio que queira melhorar a gestão!"</p>
+                </div>
+                <div class="testimonial">
+                    <img src="/assets/images/fotos-avaliações/pessoa3.jpg" alt="Cliente 3">
+                    <h3>Paulo S.</h3>
+                    <p>"A Uzzo superou minhas expectativas! Além do ótimo controle de estoque, o suporte é excelente e
+                        sempre rápido para responder. Vale cada centavo, especialmente pela facilidade de atualizar ou
+                        excluir dados. Perfeito para pequenas e médias empresas!"</p>
+                </div>
+                <div class="testimonial">
+                    <img src="/assets/images/fotos-avaliações/pessoa4.jpg" alt="Cliente 4">
+                    <h3>João Silva</h3>
+                    <p>"O trabalho deles é impressionante! Conseguiram trazer um conceito visual único e relevante para
+                        a nossa marca."</p>
+                </div>
+                <div class="testimonial">
+                    <img src="/assets/images/fotos-avaliações/pessoa5.jpg" alt="Cliente 5">
+                    <h3>Ana Souza</h3>
+                    <p>"A consultoria de marketing digital fez toda a diferença nos nossos resultados. Recomendo
+                        demais!"</p>
+                </div>
+                <div class="testimonial">
+                    <img src="/assets/images/fotos-avaliações/pessoa6.jpg" alt="Cliente 6">
+                    <h3>Carlos M</h3>
+                    <p>"A Uzzo tem sido fundamental para a organização do estoque da minha empresa! O sistema é
+                        intuitivo e fácil de usar, e a análise dos dados é super detalhada. Com certeza, ajudou a
+                        otimizar nosso tempo e a ter mais clareza sobre nossos produtos."</p>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button id="prevBtn" class="control-button" aria-label="Anterior"><i
+                        class="fas fa-arrow-left"></i></button>
+                <button id="nextBtn" class="control-button" aria-label="Próximo"><i
+                        class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="services" id="servicos">
+        <h2>Nossos Serviços</h2>
+        <p>Oferecemos serviços que abrangem desde o desenvolvimento de sites, consultoria de marketing digital, até a
+            criação de uma identidade visual impactante para o seu negócio.</p>
+        <div class="service-cards">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Criação de Sites</h3>
+                <p>Sites modernos, rápidos e adaptáveis às necessidades do seu negócio. Deixe sua marca no digital de
+                    forma profissional.</p>
+                <a href="#criacao-de-sites" class="service-link">Saiba mais →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Consultoria de Marketing Digital</h3>
+                <p>Impulsione suas campanhas e alcance mais clientes com estratégias personalizadas e eficazes.</p>
+                <a href="#consultoria" class="service-link">Saiba mais →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>Gestão de Social Mídia</h3>
+                <p>Transforme sua presença nas redes sociais com estratégias criativas e focadas em engajamento.</p>
+                <a href="#social-midia" class="service-link">Saiba mais →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Identidade Visual</h3>
+                <p>Crie uma marca memorável, única e cheia de personalidade com nossa ajuda. Sua imagem, sua essência.
+                </p>
+                <a href="#identidade-visual" class="service-link">Saiba mais →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="quem-somos">
+        <div class="about-content">
+            <h2>Quem Somos?</h2>
+            <p>Na UZZO, somos uma equipe especializada e dedicada a transformar ideias em soluções completas e impactantes. Contamos com profissionais experientes em design, social media, desenvolvimento, edição de vídeo e tráfego pago, oferecendo uma abordagem integrada para fortalecer a identidade e a presença das marcas no mercado. Nosso compromisso vai além da entrega de serviços: trabalhamos como parceiros estratégicos, unindo criatividade e técnica para alcançar resultados consistentes e memoráveis.</p>
+                <a href="#" class="cta-button" id="about-cta-button">Conhecer equipe →</a>
+        </div>
+        <div class="about-image">
+            <div class="image-placeholder"></div> <!-- Placeholder para a imagem -->
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>ACELERE SEUS RESULTADOS <span>AGORA!</span></h2>
+        <a href="#contato" class="cta-contact">Entre em contato →</a>
+    </section>
+    <!-- Rodapé Desktop -->
+    <footer class="footer footer-desktop" id="contato">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/assets/images/uzzosolutions/logo-uzzo.png" alt="Logo UZZO" style="width: 80px; height: auto;">
+                <div class="social-icons-desktop">
+                    <a href="https://instagram.com/seu-perfil"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/seu-perfil"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://discord.com/seu-perfil"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Produtos e serviços</a></li>
+                    <li><a href="#projetos">Trabalhos feitos</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#quem-somos">Quem somos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-subscribe desktop">
+                <h3 class="h3-new-desktop">SE INSCREVA PARA RECEBER ATUALIZAÇÕES</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Endereço email">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@uzzo.solutions">info@uzzo.solutions</a></p>
+            <p><i class="fas fa-phone-alt"></i> (64) 98171-8495</p>
+            <p>Uzzo Solutions - 2024</p>
+        </div>
+    </footer>
+
+    <!-- Rodapé Mobile -->
+    <footer class="footer footer-mobile">
+        <!-- Ícones Sociais -->
+        <div class="social-icons">
+            <a href="https://instagram.com/seu-perfil"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/seu-perfil"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://discord.com/seu-perfil"><i class="fab fa-discord"></i></a>
+        </div>
+        <!-- Newsletter Mobile -->
+        <div class="footer-subscribe">
+            <h3 class="h3-new-mobile">RECEBA PROMOÇÕES E NOTICIAS!</h3>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Digite seu email">
+                <button type="submit">Inscreva-se</button>
+            </form>
+        </div>
+        <div class="footer-mobile-content">
+            <!-- Coluna de Informações da Empresa -->
+            <div class="footer-column contact-info">
+                <h4>.</h4>
+                <p><i class="fas fa-map-marker-alt"></i>Rua Amazonas, 362, Centro, Goiatuba, 75600-000 </p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@uzzo.solutions"> Mande um e-mail para
+                        info@uzzo.solutions</a></p>
+            </div>
+
+        </div>
+    </footer>
+
+    </div>
+    <!-- Pop-up de contato fora do main-content -->
+    <div class="contact-popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>Fale Conosco</h2>
+            <form class="contact-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="service">Serviço desejado:</label>
+                <select id="service" name="service">
+                    <option value="web">Criação de Site</option>
+                    <option value="marketing">Consultoria de Marketing Digital</option>
+                    <option value="social">Gestão de Social Media</option>
+                    <option value="visual">Identidade Visual</option>
+                </select>
+
+                <!-- Mensagem informativa sobre redirecionamento para email -->
+                <p class="email-redirect-message">Ao enviar, você será redirecionado para seu aplicativo de email.</p>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <script src="/assets/js/script.js"></script>  
+    <script src="/assets/js/chatbot.js"></script>
+    <div id="construction-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+          <p>Ainda estamos construindo essa página, nos desculpe</p>
+          <button id="close-popup">Fechar</button>
+        </div>
+      </div>   
+      <!-- Chat Widget -->
+      <div id="chat-widget">
+        <div id="chat-icon" class="chat-icon">
+          💬
+          <span id="chat-notification" class="chat-notification">1</span>
+        </div>
+        <div id="chat-box" class="chat-box hidden">
+          <div class="chat-header">
+            <h3>Bate-papo | Layla IA</h3>
+            <button id="close-chat" class="close-chat">&times;</button>
+          </div>
+          <div class="chat-content">
+            <div id="typing-indicator" class="typing-indicator">
+                <img src="/assets/images/chatbot/typing.gif" alt="Digitando..."/>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem..." />
+            <button id="send-message">Enviar</button>
+          </div>
+        </div>
+      </div>      
+      </div>      
+      </div>      
+      </div>
+</body>
+
+</html>
