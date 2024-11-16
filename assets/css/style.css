@@ -1843,7 +1843,7 @@ h3.h3-new-desktop {
 }
 
 .chat-content::-webkit-scrollbar-thumb {
-    background-color: #007bff;
+    background-color: #00cc99;
     border-radius: 10px;
 }
 
@@ -1920,7 +1920,7 @@ h3.h3-new-desktop {
   }
 
   .faq-item:hover {
-    background: #007bff; /* Azul ao passar o mouse */
+    background: #007#00cc99; /* Azul ao passar o mouse */
     color: white;
   }
 /* Caixa de entrada */
@@ -1947,7 +1947,7 @@ h3.h3-new-desktop {
   }
 
 .chat-input button {
-  background: #007bff; /* Azul */
+  background: #00cc99; /* Azul */
   color: white;
   border: none;
   border-radius: 20px; /* Arredondado */
@@ -1958,7 +1958,7 @@ h3.h3-new-desktop {
   transition: background 0.3s ease;
 }
 .chat-input button:hover {
-    background: #0056b3; /* Azul mais escuro ao passar o mouse */
+    background: #00cc99; /* Azul mais escuro ao passar o mouse */
   }
 
 /* Avatar do Bot */
