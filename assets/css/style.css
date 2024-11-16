@@ -27,40 +27,40 @@
 
     /* Títulos (Extra Bold) */
     h1, h2, h3 {
-        font-weight: 800 !important; /* Extra bold */
+        font-weight: 800; /* Extra bold */
     }
 
     /* Subtítulos (Regular) */
     h4, h5, h6 {
-        font-weight: 400 !important; /* Regular */
+        font-weight: 400; /* Regular */
     }
 
     /* Restante do texto (Regular) */
     p, a, li {
-        font-weight: 400 !important; /* Regular */
+        font-weight: 400; /* Regular */
     }
 
     /* Superbold para Span */
     span.superbold {
-        font-weight: 800 !important; /* Força o superbold */
+        font-weight: 800; /* Força o superbold */
     }
 
     @media (max-width: 768px) {
         /* Títulos */
         h1, h2, h3 {
-            font-weight: 800  !important; /* Força o Extra Bold */
+            font-weight: 800; /* Força o Extra Bold */
             font-size: 1.8rem; /* Ajusta o tamanho do texto */
         }
 
         /* Subtítulos */
         h4, h5, h6 {
-            font-weight: 400  !important; /* Força o Regular */
+            font-weight: 400; /* Força o Regular */
             font-size: 1.2rem; /* Ajusta o tamanho do texto */
         }
 
         /* Parágrafos */
         p {
-            font-size: 1rem  !important ; /* Deixa os parágrafos menores para celulares */
+            font-size: 1rem; /* Deixa os parágrafos menores para celulares */
         }
     }
 
@@ -150,6 +150,7 @@
 
     /* Botão de Contato */
     .contact-button-menu {
+        font-weight: 700 !important;
         margin-left: auto;
         /* Empurra o botão para a direita */
         display: flex;
@@ -239,6 +240,7 @@
     }
 
     .hero-content h1 {
+        font-weight: 800 !important;
         margin-top: 50px;
         max-width: 800px;
         font-size: 3.5em;
@@ -267,6 +269,7 @@
 
     /* Botão de Ação */
     .cta-button {
+        font-weight: 700;
         display: inline-block;
         background-color: #00cc99;
         color: #000000;
@@ -449,7 +452,7 @@
 
     .testimonials h2 {
         font-size: 3em;
-        font-weight: bold;
+        font-weight: 800;
         color: white;
         margin-bottom: 10px;
     }
@@ -714,7 +717,7 @@
 
     .about-content h2 {
         font-size: 3em;
-        font-weight: bold;
+        font-weight: 800;
         line-height: 1.2;
         margin-bottom: 20px;
     }
