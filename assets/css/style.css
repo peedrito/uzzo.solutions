@@ -45,6 +45,25 @@
         font-weight: 800 !important; /* Força o superbold */
     }
 
+    @media (max-width: 768px) {
+        /* Títulos */
+        h1, h2, h3 {
+            font-weight: 800  !important; /* Força o Extra Bold */
+            font-size: 1.8rem; /* Ajusta o tamanho do texto */
+        }
+
+        /* Subtítulos */
+        h4, h5, h6 {
+            font-weight: 400  !important; /* Força o Regular */
+            font-size: 1.2rem; /* Ajusta o tamanho do texto */
+        }
+
+        /* Parágrafos */
+        p {
+            font-size: 1rem  !important ; /* Deixa os parágrafos menores para celulares */
+        }
+    }
+
     /* Estilos Globais */
     * {
         margin: 0;
