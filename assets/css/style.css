@@ -27,17 +27,17 @@
 
     /* Títulos (Extra Bold) */
     h1, h2, h3 {
-        font-weight: 800; /* Extra bold */
+        font-weight: 800 !important; /* Extra bold */
     }
 
     /* Subtítulos (Regular) */
     h4, h5, h6 {
-        font-weight: 400; /* Regular */
+        font-weight: 400 !important; /* Regular */
     }
 
     /* Restante do texto (Regular) */
     p, a, li {
-        font-weight: 400; /* Regular */
+        font-weight: 400 !important; /* Regular */
     }
 
     /* Superbold para Span */
