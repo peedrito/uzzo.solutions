@@ -1,631 +1,1682 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Elementos principais
-  const menuToggle = document.querySelector(".menu-toggle"); // Botão do menu hamburguer
-  const menu = document.querySelector(".menu"); // Menu principal
-  const menuLinks = document.querySelectorAll(".menu li a");
-  const testimonialContainer = document.getElementById("testimonial-container");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const subscribeForm = document.querySelector(".subscribe-form");
-  const contactPopup = document.querySelector(".contact-popup");
-  const closePopup = document.querySelector(".close-popup");
-  const contactForm = document.querySelector(".contact-form");
-  const contactButton = document.querySelector(".contact-button");
-  const mainContent = document.querySelector(".main-content");
-  const ctaContactButton = document.querySelector(".cta-contact");
-  const saibaMaisButton = document.querySelector(
-    '.cta-button[href="#servicos"]'
-  );
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  // Scroll suave para o botão "Saiba Mais"
-  if (saibaMaisButton) {
-    saibaMaisButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      const targetSection = document.querySelector("#servicos");
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 100,
-          behavior: "smooth",
-        });
-      }
-    });
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 95%;
+    max-width: 78rem;
+    height: 4rem;
+
+    position: fixed;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0, 77, 64, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    border-radius: 1rem;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.menu li a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #00cc99;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+/* Botão de Contato */
+.contact-button-menu {
+    margin-left: auto; /* Empurra o botão para a direita */
+    display: flex;
+    align-items: center;
+}
+
+.contact-button {
+    background-color: rgba(0, 242, 195, 1);
+    color: black;
+    border: none;
+    border-radius: 3rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-position 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-button:hover {
+    background-position: 100% 50%;
+}
+
+.contact-button::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(0, 204, 153, 0.4), rgba(0, 133, 111, 0.4));
+    z-index: -1;
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.contact-button:hover::before {
+    animation: glowLoop 18s linear infinite;
+    opacity: 1;
+}
+
+@keyframes glowLoop {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo do ícone de menu (hambúrguer) para mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    .menu {
+        display: none; /* Oculta o menu padrão no mobile */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra o ícone de menu no mobile */
+    }
+}
+
+/* Seção Hero */
+/* Seção Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    margin-top: 50px;
+    max-width: 800px;
+    font-size: 3.5em;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 span {
+    color: #00cc99; /* Cor diferenciada para o texto em destaque */
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #b0b0b0;
+    max-width: 800px; /* Aumente este valor para expandir o parágrafo */
+    width: 100%; /* Permite que o parágrafo ocupe até a largura total disponível */
+    margin: 10px auto 30px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Botão de Ação */
+.cta-button {
+    display: inline-block;
+    background-color: #00cc99;
+    color: #000000;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0%;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #00b589;
+    color: #dfdfdf;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2em;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+}
+
+
+/* Seção de Parceiros */
+.trusted-companies {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000;
+    color: white;
+}
+
+.trusted-title {
+    font-size: 1em;
+    opacity: 0.7;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.carousel {
+    overflow: hidden;
+    max-width: 100%;
+    position: relative;
+    padding: 10px 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 40px; /* Espaço entre as imagens */
+    position: relative;
+    animation: none; /* A animação será controlada via JavaScript */
+}
+
+.carousel-track img {
+    height: 60px;
+    width: auto;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.carousel-track img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+
+/* Portfólio */
+.portfolio {
+    text-align: center;
+}
+
+.animated-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.animated-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, white, transparent);
+    transform-origin: center;
+    animation: underlineExpand 15s ease-in-out infinite;
+}
+
+@keyframes underlineExpand {
+    0%, 100% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+}
+
+.portfolio-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.portfolio-item .overlay .saiba-mais {
+    color: #00cc99;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Ajustes para a seção de depoimentos */
+.testimonials {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.testimonials h2 {
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.testimonials p {
+    font-size: 0.8em;
+    color: #bbb;
+    margin-top: 0%;
+    margin-bottom: 40px;
+}
+
+.testimonial-wrapper {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    padding: 0 20px;
+}
+
+.testimonial-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonial {
+    flex: 0 0 auto;
+    width: 300px; /* Define uma largura fixa */
+    background: linear-gradient(135deg, #004d40, #006f59);
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    scroll-snap-align: center; /* Alinhamento ao parar de rolar */
+}
+
+.testimonial img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover; /* Corrige a distorção das imagens */
+}
+
+.testimonial h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.testimonial p {
+    font-size: 0.8em;
+    line-height: 1.4;
+    color: #ddd;
+}
+
+/* Botões de navegação */
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.control-button {
+    background: #00cc99;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button:hover {
+    background-color: #00856f;
+}
+
+.control-button i {
+    font-size: 1em;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .testimonial-container {
+        gap: 10px;
+    }
+
+    .testimonial-wrapper {
+        padding: 0 10px;
+    }
+
+    .testimonial {
+        flex: 0 0 100%;
+        max-width: 100%;
+        scroll-snap-align: start;
+    }
+
+    .testimonials h2 {
+        font-size: 2em;
+    }
+
+    .testimonials p {
+        font-size: 0.8em;
+    }
+
+    /* Esconde os botões de navegação em telas menores */
+    .testimonial-controls {
+        display: none;
+    }
+}
+
+
+
+/* Serviços */
+.services {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.services p {
+    max-width: 500px;
+    margin: 0 auto 40px;
+    font-size: 0.8em;
+    color: #bbb;
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.service-card h3 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.service-card p {
+    font-size: 0.8em;
+    color: #bbb;
+}
+
+.service-card .service-icon {
+    font-size: 1.8em;
+    color: #00f2c3;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.service-link {
+    display: inline-block;
+    color: #00f2c3;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+.service-link:hover {
+    color: #00cc99;
+}
+
+.service-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.service-cards {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Ajuste para Desktop */
+@media (min-width: 769px) {
+    .service-card .service-icon {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.8em;
+        color: #00f2c3;
+    }
+
+    .service-card h3 {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .service-card {
+        min-width: 80%;
+        scroll-snap-align: start;
+    }
+
+    .service-card .service-icon {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Sobre Nós */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.about-content {
+    max-width: 50%;
+}
+
+.about-content h2 {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-content h2 span {
+    color: #00cc99;
+}
+
+.about-content p {
+    font-size: 0.9em;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #d3d3d3;
+}
+
+/* Chamada para Ação */
+.cta {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.cta h2 {
+    font-size: 4em;
+    text-align: center;
+    margin: 0 auto;
+    width: auto;
+    font-weight: superbold;
+}
+
+.cta h2 span {
+    color: #00cc99;
+}
+
+.cta-contact {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00cc99;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: 2px solid #00cc99;
+    padding-bottom: 5px;
+}
+
+/* Pop-up de Contato */
+.main-content.blur-active {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+/* Fundo do pop-up em cinza */
+.contact-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 50, 50, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 2000;
+}
+
+.contact-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Conteúdo do pop-up */
+.popup-content {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2100;
+    color: #333;
+}
+
+/* Botão de fechar o pop-up */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    background: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #00cc99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.close-popup:hover {
+    background: #00cc99;
+    color: #fff;
+}
+
+/* Texto dentro do formulário */
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Botão de enviar */
+.contact-form button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #00cc99;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #00856f;
+}
+
+/* Mensagem de redirecionamento para o email */
+.email-redirect-message {
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Alinha os itens horizontalmente no centro */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    gap: 10px;
+}
+
+.social-icons i {
+    font-size: 1.5em;
+    color: #00cc99;
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+}
+
+.footer-subscribe {
+    text-align: center;
+}
+
+.footer .social-icons a:hover {
+    color: #00cc99;
+}
+
+.footer-links ul li a:hover {
+    color: #00cc99;
+}
+
+.subscribe-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #fff;
+    outline: none;
+    flex: 1;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    border-radius: 0 20px 20px 0;
+    border: none;
+    background-color: #00cc99;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #00856f;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    color: #bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha verticalmente os itens */
+    gap: 20px;
+    flex-wrap: nowrap; /* Impede que os itens quebrem de linha */
+}
+
+.footer-bottom p {
+    margin: 0; /* Remove as margens para evitar espaçamento extra */
+    font-size: 0.9em; 
+    white-space: nowrap; /* Garante que o texto não quebre */
+    display: flex; 
+    align-items: center; /* Alinha os ícones com o texto */
+    gap: 5px; /* Espaço entre ícone e texto */
+}
+
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        gap: 10px; /* Reduz o espaço entre os itens no mobile */
+    }
+
+    .footer-bottom p {
+        font-size: 0.8em; /* Reduz o tamanho da fonte para caber melhor */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-bottom {
+        gap: 5px; /* Reduz o espaço entre os itens para telas pequenas */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.7em; /* Reduz ainda mais o tamanho da fonte */
+    }
+}
+
+/* Ajustes de layout em telas pequenas para evitar sobreposição */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.8em;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .hero p {
+        font-size: 1em;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .benefits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .benefit-item {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .portfolio-gallery {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .portfolio-item {
+        min-width: 100%;
+        scroll-snap-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .portfolio-gallery::-webkit-scrollbar {
+        display: none;
+    }
+    .portfolio-gallery {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .portfolio-item .overlay .saiba-mais {
+        display: none;
+    }
+
+    .mobile-button {
+        display: block;
+        text-align: center;
+        background-color: #00cc99;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 20px;
+        margin-top: 10px;
+        width: 90%;
+    }
+
+    .menu {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100%;
+        background: rgba(0, 77, 64, 0.9);
+        padding-top: 60px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu li {
+        text-align: left;
+        padding: 15px;
+    }
+
+    .portfolio {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content, .about-image {
+        max-width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+    }
+
+    .partner-logos img {
+        width: 80px;
+    }
+
+    .portfolio {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .testimonial {
+        flex: 0 0 220px;
+    }
+
+    .control-button {
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card .service-icon {
+        font-size: 1.5em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+
+    .footer-links ul li a {
+        font-size: 0.9em;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .subscribe-form input {
+        border-radius: 20px;
+    }
+
+    .subscribe-form button {
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Estilos Gerais do Rodapé */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer h3 {
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Rodapé Desktop */
+.footer-desktop .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+    flex-wrap: nowrap;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo img {
+    margin-bottom: 10px;
+    width: 80px;
+    height: auto;
+}
+
+/* Ícones Sociais Desktop */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #00cc99;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+/* Links do Rodapé */
+.footer-links {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 5px;
+}
+
+.footer-links ul li a {
+    font-size: 1em;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #00cc99;
+}
+
+/* Newsletter Desktop */
+.footer-subscribe.desktop {
+    text-align: left;
+}
+
+h3.h3-new-desktop {
+    font-size: 0.8em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    outline: none;
+    color: #000;
+    flex: 1;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #00cc99;
+    color: #000;
+}
+
+/* Rodapé Inferior */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #bbb;
+    font-size: 0.8em;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.footer-bottom p a {
+    color: #bbb;
+}
+
+.footer-bottom p a:hover {
+    color: #00cc99;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Oculta o rodapé desktop no mobile */
+    .footer-desktop {
+        display: none;
+    }
+}
+/* Oculta a versão desktop no mobile e vice-versa */
+.footer-desktop {
+    display: none;
+}
+
+.footer-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo principal */
+    background-color: #000;
+    color: #fff;
+    padding: 30px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-mobile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo das colunas */
+    gap: 20px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro de cada coluna */
+}
+
+.footer-column h4 {
+    font-size: 1em;
+    color: #00cc99;
+    margin-bottom: 10px;
+    text-align: center; /* Centraliza o texto do h4 */
+}
+
+.footer-column p,
+.footer-column li a {
+    font-size: 0.8em;
+    text-align: center;
+    color: #bbb;
+}
+
+.footer-column p i,
+.footer-column li a {
+    margin-right: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column li a {
+    text-decoration: none;
+    color: #bbb;
+    transition: color 0.3s;
+}
+
+.footer-column li a:hover {
+    color: #00cc99;
+}
+
+/* Estilos dos Ícones Sociais */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #00cc99;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+/* Newsletter Mobile */
+.footer-subscribe {
+    margin-top: 15px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.subscribe-form input[type="email"] {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    outline: none;
+    color: #000;
+}
+
+.subscribe-form button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #00cc99;
+    background-color: #000;
+    color: #00cc99;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #00cc99;
+    color: #000;
+}
+
+/* Responsividade para dispositivos maiores */
+@media (min-width: 769px) {
+    .footer-mobile {
+        display: none; /* Oculta o rodapé mobile em telas maiores */
+    }
+
+    .footer-desktop {
+        display: block; /* Exibe o rodapé desktop em telas maiores */
+    }
+}
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ajusta o espaçamento entre os elementos, reduzindo para evitar o afastamento */
+}
+
+.language-selector {
+    position: relative;
+    cursor: pointer;
+}
+
+.selected-language {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.selected-language img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a bandeira preencher todo o círculo */
+}
+
+.language-options {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.language-options li {
+    list-style: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.language-options li:hover {
+    background-color: #00cc99;
+}
+
+.language-options img {
+    width: 30px;
+    height: auto;
+    object-fit: cover; /* Garante que as bandeiras nas opções também fiquem centralizadas */
+}
+
+.translation-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(20px) translateX(-50%);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
 
-  // Toggle do menu no mobile
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
-    });
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
-
-  // Scroll suave ao clicar nos itens do menu
-  menuLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 100,
-          behavior: "smooth",
-        });
-        if (menu.classList.contains("active")) {
-          menu.classList.remove("active");
-        }
-      }
-    });
-  });
-
-  // Configuração para a rolagem do carrossel de depoimentos
-  if (testimonialContainer && prevBtn && nextBtn) {
-    const scrollStep = 350; // Valor fixo para cada rolagem
-
-    // Botão de navegação para o próximo
-    nextBtn.addEventListener("click", () => {
-      testimonialContainer.scrollBy({
-        left: scrollStep,
-        behavior: "smooth",
-      });
-    });
-
-    // Botão de navegação para o anterior
-    prevBtn.addEventListener("click", () => {
-      testimonialContainer.scrollBy({
-        left: -scrollStep,
-        behavior: "smooth",
-      });
-    });
-
-    // Suporte para deslizar com toque em dispositivos móveis
-    let startX;
-    testimonialContainer.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    testimonialContainer.addEventListener("touchmove", (e) => {
-      const moveDiff = startX - e.touches[0].clientX;
-      if (Math.abs(moveDiff) > 50) {
-        testimonialContainer.scrollBy({
-          left: moveDiff,
-          behavior: "smooth",
-        });
-        startX = e.touches[0].clientX;
-      }
-    });
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
-
-  // Pop-up de contato
-  const openContactPopup = (e) => {
-    e.preventDefault();
-    if (contactPopup) {
-      contactPopup.classList.add("active");
-      mainContent.classList.add("blur-active");
-    }
-  };
-  if (contactButton) contactButton.addEventListener("click", openContactPopup);
-  if (ctaContactButton)
-    ctaContactButton.addEventListener("click", openContactPopup);
-
-  if (closePopup) {
-    closePopup.addEventListener("click", () => {
-      contactPopup.classList.remove("active");
-      mainContent.classList.remove("blur-active");
-    });
+  
+  .popup-content p {
+    margin-bottom: 15px;
   }
-  if (contactPopup) {
-    contactPopup.addEventListener("click", (e) => {
-      if (e.target === contactPopup) {
-        contactPopup.classList.remove("active");
-        mainContent.classList.remove("blur-active");
-      }
-    });
+  
+  #close-popup {
+    padding: 8px 16px;
+    background-color: #00cc99;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
   }
+  
+/* Alterações para melhorar a responsividade */
 
-  // Enviar informações do formulário de contato via e-mail
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const service = document.getElementById("service").value;
-      if (name && phone && service) {
-        const mailtoLink = `mailto:info@uzzo.solutions?subject=Contato%20Uzzo%20Solutions&body=Nome:%20${encodeURIComponent(
-          name
-        )}%0ATelefone:%20${encodeURIComponent(
-          phone
-        )}%0AServi%C3%A7o%20desejado:%20${encodeURIComponent(service)}`;
-        window.location.href = mailtoLink;
-      } else {
-        alert("Por favor, preencha todos os campos.");
-      }
-    });
-  }
+/* Menu Toggle para Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
 
-  // Inscrição da newsletter
-  if (subscribeForm) {
-    subscribeForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const emailInput = subscribeForm.querySelector('input[type="email"]');
-      const email = emailInput.value;
-      if (email) {
-        const mailtoLink = `mailto:info@uzzo.solutions?subject=Assinatura%20de%20Newsletter&body=Eu%20aceito%20receber%20ofertas%20e%20not%C3%ADcias.%0AEmail:%20${encodeURIComponent(
-          email
-        )}`;
-        window.location.href = mailtoLink;
-      } else {
-        alert("Por favor, insira um endereço de e-mail válido.");
-      }
-    });
-  }
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background: white;
+}
 
-  // Atualizar links das redes sociais
-  const instagramLink = document.querySelector(
-    ".social-icons a[href*='instagram']"
-  );
-  const linkedinLink = document.querySelector(
-    ".social-icons a[href*='linkedin']"
-  );
-  const discordLink = document.querySelector(
-    ".social-icons a[href*='discord']"
-  );
-  if (instagramLink)
-    instagramLink.href = "https://www.instagram.com/uzzosolutions/";
-  if (linkedinLink)
-    linkedinLink.href = "https://www.linkedin.com/company/uzzo-solutions/";
-  if (discordLink) discordLink.href = "https://discord.gg/EFgNAVYD4q";
-});
-const translations = {
-  pt: {
-    translating:
-      "Traduzindo a página para você. Qualquer dúvida ou erro, entre em contato.",
-    menu: ["Início", "Feedbacks", "Serviços", "Quem somos"],
-    heroTitle:
-      "Esse é o <span>momento</span>, alcance <span>seus resultados</span>!",
-    heroDescription:
-    "Na UZZO Solutions, não apenas criamos soluções digitais — nós criamos experiências que inspiram, engajam e transformam.",
-    contactButton: "Fale conosco!",
-    testimonialsTitle: "Avaliações de clientes",
-    testimonialsDescription:
-      "Veja o que nossos clientes têm a dizer sobre as soluções que desenvolvemos juntos.",
-    testimonials: [
-      "A equipe da Uzzo entendeu exatamente o que precisávamos e transformou nossas ideias em um site incrível. Profissionalismo e criatividade de sobra!",
-      "Usar o sistema da Uzzo fez uma grande diferença no meu dia a dia. Antes, eu perdia muito tempo com planilhas e controle manual. Agora, consigo visualizar tudo de forma prática e até gerar relatórios em poucos cliques. Recomendo para qualquer negócio que queira melhorar a gestão!",
-      "A Uzzo superou minhas expectativas! Além do ótimo controle de estoque, o suporte é excelente e sempre rápido para responder. Vale cada centavo, especialmente pela facilidade de atualizar ou excluir dados. Perfeito para pequenas e médias empresas!",
-      "O trabalho deles é impressionante! Conseguiram trazer um conceito visual único e relevante para a nossa marca.",
-      "A consultoria de marketing digital fez toda a diferença nos nossos resultados. Recomendo demais!",
-      "A Uzzo tem sido fundamental para a organização do estoque da minha empresa! O sistema é intuitivo e fácil de usar, e a análise dos dados é super detalhada. Com certeza, ajudou a otimizar nosso tempo e a ter mais clareza sobre nossos produtos.",
-    ],
-    servicesTitle: "Nossos Serviços",
-    servicesDescription:
-      "Oferecemos serviços que abrangem desde o desenvolvimento de sites, consultoria de marketing digital, até a criação de uma identidade visual impactante para o seu negócio.",
-    serviceCards: [
-      "Criação de Sites",
-      "Consultoria de Marketing Digital",
-      "Gestão de Social Mídia",
-      "Identidade Visual",
-    ],
-    serviceDescriptions: [
-      "Sites modernos, rápidos e adaptáveis às necessidades do seu negócio. Deixe sua marca no digital de forma profissional.",
-      "Impulsione suas campanhas e alcance mais clientes com estratégias personalizadas e eficazes.",
-      "Transforme sua presença nas redes sociais com estratégias criativas e focadas em engajamento.",
-      "Crie uma marca memorável, única e cheia de personalidade com nossa ajuda. Sua imagem, sua essência.",
-    ],
-    aboutTitle: "Quem Somos?",
-    aboutDescription:
-      "Na UZZO, acreditamos que toda grande ideia merece uma execução impecável. Nossa equipe é apaixonada por tecnologia e design, criando soluções que elevam a identidade das empresas. Queremos que sua marca conte uma história impactante e faça diferença no mercado.",
-    ctaTitle: "ACELERE SEUS RESULTADOS <span>AGORA!</span>",
-    ctaContact: "Entre em contato →",
-    popup: {
-      title: "Fale Conosco",
-      nameLabel: "Nome:",
-      phoneLabel: "Telefone:",
-      serviceLabel: "Serviço desejado:",
-      emailRedirectMessage:
-        "Ao enviar, você será redirecionado para seu aplicativo de email.",
-      submitButton: "Enviar",
-    },
-    submitButton: "Enviar",
-    placeholderEmail: "Digite seu email",
-    footer: {
-      subscribe: "SE INSCREVA PARA RECEBER ATUALIZAÇÕES",
-      contactUs: "Mande um e-mail para info@uzzo.solutions",
-      address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
-      social: "Siga-nos nas redes sociais",
-      mobileSubscribe: "RECEBA PROMOÇÕES E NOTÍCIAS!",
-      contactInfo: "Mande um e-mail para info@uzzo.solutions",
-      footerEmail: "info@uzzo.solutions",
-      phone: "(64) 98171-8495",
-      year: "Uzzo Solutions - 2024",
-      links: [
-        "Início",
-        "Produtos e serviços",
-        "Trabalhos feitos",
-        "Quem somos",
-        "Contato",
-      ],
-    },
-    heroCtaButton: "Saiba mais →",
-    aboutCtaButton: "Conhecer equipe →",
-    trustedtitle: "Empresas que confiam em nós",
-    heroCtaButton: "Saiba mais →",
-  },
-  en: {
-    translating:
-      "Translating the page for you. If you have any questions or errors, please contact us.",
-    menu: ["Home", "Feedbacks", "Services", "About Us"],
-    heroTitle:
-      "We Drive <span>Creative Innovations</span> for Extraordinary Results",
-    heroDescription:
-      "At UZZO Solutions, we don’t just create digital solutions — we create experiences that inspire, engage, and transform. Our focus is on deeply understanding your business and goals, developing everything from design to impactful and customized solutions.",
-    contactButton: "Contact Us!",
-    testimonialsTitle: "Client Reviews",
-    testimonialsDescription:
-      "See what our clients have to say about the solutions we developed together.",
-    testimonials: [
-      "The Uzzo team understood exactly what we needed and turned our ideas into an amazing website. Professionalism and creativity galore!",
-      "Using Uzzo's system has made a big difference in my daily routine. Before, I spent a lot of time on spreadsheets and manual control. Now, I can visualize everything practically and even generate reports in a few clicks. I recommend it to any business that wants to improve management!",
-      "Uzzo exceeded my expectations! In addition to the excellent inventory control, the support is great and always quick to respond. Worth every penny, especially for the ease of updating or deleting data. Perfect for small and medium businesses!",
-      "Their work is impressive! They managed to bring a unique and relevant visual concept to our brand.",
-      "The digital marketing consulting made all the difference in our results. Highly recommended!",
-      "Uzzo has been essential for organizing my company's inventory! The system is intuitive and easy to use, and the data analysis is very detailed. It has certainly helped optimize our time and gain more clarity about our products.",
-    ],
-    servicesTitle: "Our Services",
-    servicesDescription:
-      "We offer services that range from website development, digital marketing consulting, to creating an impactful visual identity for your business.",
-    serviceCards: [
-      "Website Creation",
-      "Digital Marketing Consulting",
-      "Social Media Management",
-      "Visual Identity",
-    ],
-    serviceDescriptions: [
-      "Modern, fast, and adaptable websites tailored to your business needs. Make your digital mark professionally.",
-      "Boost your campaigns and reach more clients with personalized and effective strategies.",
-      "Transform your social media presence with creative strategies focused on engagement.",
-      "Create a memorable, unique, and full-of-personality brand with our help. Your image, your essence.",
-    ],
-    aboutTitle: "Who We Are",
-    aboutDescription:
-      "At UZZO, we believe every great idea deserves flawless execution. Our team is passionate about technology and design, creating solutions that elevate business identities. We want your brand to tell a powerful story and make a difference in the market.",
-    ctaTitle: "BOOST YOUR RESULTS <span>NOW!</span>",
-    ctaContact: "Contact Us →",
-    popup: {
-      title: "Contact Us",
-      nameLabel: "Name:",
-      phoneLabel: "Phone:",
-      serviceLabel: "Desired Service:",
-      emailRedirectMessage:
-        "Upon sending, you will be redirected to your email application.",
-      submitButton: "Send",
-    },
-    submitButton: "Send",
-    placeholderEmail: "Enter your email",
-    footer: {
-      subscribe: "SUBSCRIBE FOR UPDATES",
-      contactUs: "Send an email to info@uzzo.solutions",
-      address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
-      social: "Follow us on social media",
-      mobileSubscribe: "RECEIVE PROMOTIONS AND NEWS!",
-      contactInfo: "Send an email to info@uzzo.solutions",
-      footerEmail: "info@uzzo.solutions",
-      phone: "(64) 98171-8495",
-      year: "Uzzo Solutions - 2024",
-      links: [
-        "Home",
-        "Products and Services",
-        "Portfolio",
-        "About Us",
-        "Contact",
-      ],
-    },
-    heroCtaButton: "Learn more →",
-    aboutCtaButton: "Meet the team →",
-    trustedtitle: "Companies that trust us",
-    heroCtaButton: "Learn more →",
-  },
-  es: {
-    translating:
-      "Traduciendo la página para usted. Si tiene alguna pregunta o error, contáctenos.",
-    menu: ["Inicio", "Comentarios", "Servicios", "Quiénes somos"],
-    heroTitle:
-      "Impulsamos <span>Innovaciones Creativas</span> para Resultados Extraordinarios",
-    heroDescription:
-      "En UZZO Solutions, no solo creamos soluciones digitales — creamos experiencias que inspiran, enganchan y transforman. Nuestro enfoque es entender profundamente su negocio y sus objetivos, desarrollando desde el diseño hasta soluciones personalizadas e impactantes.",
-    contactButton: "¡Contáctanos!",
-    testimonialsTitle: "Reseñas de Clientes",
-    testimonialsDescription:
-      "Vea lo que nuestros clientes dicen sobre las soluciones que desarrollamos juntos.",
-    testimonials: [
-      "El equipo de Uzzo entendió exactamente lo que necesitábamos y convirtió nuestras ideas en un sitio web increíble. ¡Profesionalismo y creatividad de sobra!",
-      "Usar el sistema de Uzzo ha marcado una gran diferencia en mi día a día. Antes, pasaba mucho tiempo con hojas de cálculo y control manual. Ahora, puedo visualizar todo de forma práctica e incluso generar informes en pocos clics. ¡Lo recomiendo a cualquier negocio que quiera mejorar la gestión!",
-      "¡Uzzo superó mis expectativas! Además del excelente control de inventario, el soporte es excelente y siempre rápido para responder. Vale cada centavo, especialmente por la facilidad de actualizar o eliminar datos. ¡Perfecto para pequeñas y medianas empresas!",
-      "¡Su trabajo es impresionante! Lograron aportar un concepto visual único y relevante a nuestra marca.",
-      "La consultoría de marketing digital hizo toda la diferencia en nuestros resultados. ¡Muy recomendado!",
-      "¡Uzzo ha sido fundamental para la organización del inventario de mi empresa! El sistema es intuitivo y fácil de usar, y el análisis de datos es muy detallado. Sin duda, ha ayudado a optimizar nuestro tiempo y a tener más claridad sobre nuestros productos.",
-    ],
-    servicesTitle: "Nuestros Servicios",
-    servicesDescription:
-      "Ofrecemos servicios que van desde el desarrollo de sitios web, consultoría de marketing digital, hasta la creación de una identidad visual impactante para su negocio.",
-    serviceCards: [
-      "Creación de Sitios Web",
-      "Consultoría de Marketing Digital",
-      "Gestión de Redes Sociales",
-      "Identidad Visual",
-    ],
-    serviceDescriptions: [
-      "Sitios modernos, rápidos y adaptables a las necesidades de su negocio. Deje su marca en el digital de forma profesional.",
-      "Impulse sus campañas y alcance a más clientes con estrategias personalizadas y efectivas.",
-      "Transforme su presencia en las redes sociales con estrategias creativas enfocadas en el engagement.",
-      "Cree una marca memorable, única y llena de personalidad con nuestra ayuda. Su imagen, su esencia.",
-    ],
-    aboutTitle: "¿Quiénes Somos?",
-    aboutDescription:
-      "En UZZO, creemos que toda gran idea merece una ejecución impecable. Nuestro equipo es apasionado por la tecnología y el diseño, creando soluciones que elevan la identidad de las empresas. Queremos que su marca cuente una historia impactante y haga la diferencia en el mercado.",
-    ctaTitle: "¡ACELERE SUS RESULTADOS <span>AHORA!</span>",
-    ctaContact: "Contáctenos →",
-    popup: {
-      title: "Contáctenos",
-      nameLabel: "Nombre:",
-      phoneLabel: "Teléfono:",
-      serviceLabel: "Servicio deseado:",
-      emailRedirectMessage:
-        "Al enviar, será redirigido a su aplicación de correo.",
-      submitButton: "Enviar",
-    },
-    submitButton: "Enviar",
-    placeholderEmail: "Introduce tu correo",
-    footer: {
-      subscribe: "SUSCRÍBASE PARA RECIBIR ACTUALIZACIONES",
-      contactUs: "Envía un correo a info@uzzo.solutions",
-      address: "Rua Amazonas, 362, Centro, Goiatuba, 75600-000",
-      social: "Síguenos en redes sociales",
-      mobileSubscribe: "¡RECIBE PROMOCIONES Y NOTICIAS!",
-      contactInfo: "Envía un correo a info@uzzo.solutions",
-      footerEmail: "info@uzzo.solutions",
-      phone: "(64) 98171-8495",
-      year: "Uzzo Solutions - 2024",
-      links: [
-        "Inicio",
-        "Productos y servicios",
-        "Trabajos realizados",
-        "Quiénes somos",
-        "Contacto",
-      ],
-    },
-    heroCtaButton: "Saber más →",
-    aboutCtaButton: "Conocer equipo →",
-    trustedtitle: "Empresas que confían en nosotros",
-    heroCtaButton: "Saber más →",
-  },
-};
-document.addEventListener("DOMContentLoaded", () => {
-  const languageOptions = document.getElementById("language-options");
-  const selectedLanguage = document.getElementById("selected-language");
-  const currentFlag = document.getElementById("current-flag");
-
-  if (selectedLanguage) {
-    selectedLanguage.addEventListener("click", () => {
-      if (languageOptions) {
-        languageOptions.style.display =
-          languageOptions.style.display === "block" ? "none" : "block";
-      } else {
-        console.error("Elemento 'language-options' não encontrado.");
-      }
-    });
-  } else {
-    console.error("Elemento 'selected-language' não encontrado.");
-  }
-
-  if (languageOptions) {
-    languageOptions.addEventListener("click", (e) => {
-      const lang = e.target.closest("li")?.dataset.lang;
-      if (lang) {
-        changeLanguage(lang);
-      }
-    });
-  } else {
-    console.error(
-      "Elemento 'language-options' não encontrado para adicionar evento de clique."
-    );
-  }
-
-  const changeLanguage = (language) => {
-    const selectedOption = document.querySelector(
-      `[data-lang="${language}"] img`
-    );
-    if (currentFlag && selectedOption) {
-      currentFlag.src = selectedOption.src;
+/* Responsividade */
+@media (max-width: 700px) {
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .menu.active {
+        transform: translateX(0);
     }
 
-    showTranslatingMessage(language);
-    updateTexts(language);
-
-    if (languageOptions) {
-      languageOptions.style.display = "none";
+    .menu-toggle {
+        display: flex;
     }
-  };
+}
 
-  const showTranslatingMessage = (language) => {
-    const message = translations[language]?.translating;
-    if (message) {
-      const messageDiv = document.createElement("div");
-      messageDiv.classList.add("translation-message");
-      messageDiv.innerText = message;
-      document.body.appendChild(messageDiv);
+/* Seção Hero */
+.hero-content h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
 
-      setTimeout(() => {
-        messageDiv.remove();
-      }, 3000);
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #b0b0b0;
+    max-width: 800px;
+    margin: 10px auto 30px;
+    line-height: 1.5;
+}
+
+/* Footer Responsivo */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
     }
-  };
+}
 
-  const updateTexts = (language) => {
-    const menuLinks = document.querySelectorAll(".menu li a");
-    menuLinks.forEach((link, index) => {
-      if (translations[language]?.menu[index]) {
-        link.innerHTML = translations[language].menu[index];
-      }
-    });
-
-    const heroTitle = document.querySelector(".hero-content h1");
-    const heroDescription = document.querySelector(".hero-content p");
-    const contactButton = document.querySelector(".contact-button");
-    const heroCtaButton = document.getElementById("hero-cta-button");
-    const aboutCtaButton = document.getElementById("about-cta-button");
-    const trustedTitle = document.querySelector(".trusted-title");
-
-    // Traduzir botão "Saiba mais" desktop
-    const saibaMaisButtons = document.querySelectorAll(".saiba-mais");
-    saibaMaisButtons.forEach((button) => {
-      button.innerText =
-        translations[language]?.heroCtaButton || button.innerText;
-    });
-
-    // Traduzir botão "Saiba mais" mobile
-    const mobileButtons = document.querySelectorAll(".mobile-button");
-    mobileButtons.forEach((button) => {
-      button.innerText =
-        translations[language]?.heroCtaButton || button.innerText;
-    });
-
-    if (trustedTitle) {
-      trustedTitle.innerText =
-        translations[language]?.trustedtitle || trustedTitle.innerText;
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 10px;
     }
 
-    if (heroTitle && heroDescription && contactButton) {
-      heroTitle.innerHTML =
-        translations[language]?.heroTitle || heroTitle.innerHTML;
-      heroDescription.innerHTML =
-        translations[language]?.heroDescription || heroDescription.innerHTML;
-      contactButton.innerText =
-        translations[language]?.contactButton || contactButton.innerText;
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
     }
-
-    if (heroCtaButton) {
-      heroCtaButton.innerText =
-        translations[language]?.heroCtaButton || heroCtaButton.innerText;
+    
+    .cta h2 {
+        font-size: 1.5em;
     }
+}
 
-    if (aboutCtaButton) {
-      aboutCtaButton.innerText =
-        translations[language]?.aboutCtaButton || aboutCtaButton.innerText;
-    }
-
-    const testimonialsTitle = document.querySelector(".testimonials h2");
-    const testimonialsDescription = document.querySelector(".testimonials p");
-    const testimonialsTexts = document.querySelectorAll(".testimonial p");
-    if (testimonialsTitle && testimonialsDescription) {
-      testimonialsTitle.innerText =
-        translations[language]?.testimonialsTitle ||
-        testimonialsTitle.innerText;
-      testimonialsDescription.innerText =
-        translations[language]?.testimonialsDescription ||
-        testimonialsDescription.innerText;
-    }
-    testimonialsTexts.forEach((testimonial, index) => {
-      if (translations[language]?.testimonials[index]) {
-        testimonial.innerText = translations[language].testimonials[index];
-      }
-    });
-
-    const servicesTitle = document.querySelector(".services h2");
-    const servicesDescription = document.querySelector(".services p");
-    if (servicesTitle && servicesDescription) {
-      servicesTitle.innerText =
-        translations[language]?.servicesTitle || servicesTitle.innerText;
-      servicesDescription.innerText =
-        translations[language]?.servicesDescription ||
-        servicesDescription.innerText;
-    }
-
-    const serviceCards = document.querySelectorAll(".service-card h3");
-    const serviceDescriptions = document.querySelectorAll(".service-card p");
-    serviceCards.forEach((card, index) => {
-      if (translations[language]?.serviceCards[index]) {
-        card.innerText = translations[language].serviceCards[index];
-      }
-    });
-    serviceDescriptions.forEach((desc, index) => {
-      if (translations[language]?.serviceDescriptions[index]) {
-        desc.innerText = translations[language].serviceDescriptions[index];
-      }
-    });
-
-    const aboutTitle = document.querySelector(".about-content h2");
-    const aboutDescription = document.querySelector(".about-content p");
-    if (aboutTitle && aboutDescription) {
-      aboutTitle.innerText =
-        translations[language]?.aboutTitle || aboutTitle.innerText;
-      aboutDescription.innerText =
-        translations[language]?.aboutDescription || aboutDescription.innerText;
-    }
-
-    const ctaTitle = document.querySelector(".cta h2");
-    const ctaContact = document.querySelector(".cta-contact");
-    if (ctaTitle && ctaContact) {
-      ctaTitle.innerHTML =
-        translations[language]?.ctaTitle || ctaTitle.innerHTML;
-      ctaContact.innerText =
-        translations[language]?.ctaContact || ctaContact.innerText;
-    }
-
-    // Atualizar links do footer
-    const footerLinks = document.querySelectorAll(".footer-links ul li a");
-    if (footerLinks && translations[language]?.footer?.links) {
-      footerLinks.forEach((link, index) => {
-        if (translations[language].footer.links[index]) {
-          link.innerText = translations[language].footer.links[index];
-        }
-      });
-    }
-
-    const footerSubscribeDesktop = document.querySelector(
-      ".footer-desktop .footer-subscribe h3"
-    );
-    const footerSubscribeMobile = document.querySelector(
-      ".footer-mobile .footer-subscribe h3"
-    );
-
-    if (footerSubscribeDesktop) {
-      footerSubscribeDesktop.innerText =
-        translations[language]?.footer?.subscribe ||
-        footerSubscribeDesktop.innerText;
-    }
-    if (footerSubscribeMobile) {
-      footerSubscribeMobile.innerText =
-        translations[language]?.footer?.mobileSubscribe ||
-        footerSubscribeMobile.innerText;
-    }
-  };
-
-  // Inicializar com o idioma padrão (Português)
-  updateTexts("pt");
-});
-
-// Pop-up de construção em andamento
-document.addEventListener("DOMContentLoaded", () => {
-  const aboutCtaButton = document.getElementById("about-cta-button");
-  const popup = document.getElementById("construction-popup");
-  const closePopupButton = document.getElementById("close-popup");
-
-  if (aboutCtaButton) {
-    aboutCtaButton.addEventListener("click", (e) => {
-      e.preventDefault(); // Impede o link de navegar
-      popup.style.display = "flex"; // Exibe o pop-up
-    });
-  }
-
-  if (closePopupButton) {
-    closePopupButton.addEventListener("click", () => {
-      popup.style.display = "none"; // Fecha o pop-up
-    });
-  }
-
-  // Fechar o pop-up ao clicar fora dele
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      popup.style.display = "none";
-    }
-  });
-});
+.social-icons-desktop {
+    gap: 10px;
+    margin-left: 10px;
+    margin: auto;
+}
