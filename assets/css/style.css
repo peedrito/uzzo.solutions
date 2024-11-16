@@ -269,15 +269,15 @@ nav {
 .carousel {
     overflow: hidden;
     max-width: 100%;
-    margin: 0 auto;
-    padding: 10px 0;
     position: relative;
+    padding: 10px 0;
 }
 
 .carousel-track {
     display: flex;
-    gap: 40px;
-    animation: scrollLogos 30s linear infinite;
+    gap: 40px; /* Espaço entre as imagens */
+    position: relative;
+    animation: none; /* A animação será controlada via JavaScript */
 }
 
 .carousel-track img {
@@ -292,14 +292,6 @@ nav {
     opacity: 1;
 }
 
-@keyframes scrollLogos {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
 
 /* Portfólio */
 .portfolio {
@@ -526,7 +518,7 @@ nav {
 }
 
 .services h2 {
-    font-size: 2em;
+    font-size: 3em;
     margin-bottom: 20px;
 }
 
@@ -656,7 +648,7 @@ nav {
 }
 
 .about-content h2 {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 20px;
