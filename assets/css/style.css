@@ -5,25 +5,15 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Geist', sans-serif;
-            background-color: #000;
-            color: white;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Geist', sans-serif;
-            background-color: #000;
-            color: white;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            overflow-x: hidden;
-        }
+body {
+    font-family: 'Geist', sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
 
 /* Estilos de fontes responsivas */
 h1, h2, h3 {
@@ -33,49 +23,49 @@ h1, h2, h3 {
 }
 
 h4, h5, h6 {
-    font-weight: 400; /* Regular */
+    font-weight: 400 !important; /* Regular */
     font-size: clamp(1.2rem, 3vw, 1.5rem); /* Ajuste responsivo */
     line-height: 1.3;
 }
 
 p, a, li {
-    font-weight: 400; /* Regular */
-    font-size: clamp(1rem, 2vw, 1.2rem); /* Ajuste responsivo */
+    font-weight: 400 !important; /* Regular */
+    font-size: clamp(1rem, 2vw, 1.2rem) !important; /* Ajuste responsivo */
     line-height: 1.5;
 }
 
 span.superbold {
-    font-weight: 800; /* Superbold */
-    font-size: clamp(1rem, 2vw, 1.2rem); /* Ajuste responsivo */
+    font-weight: 800 !important; /* Superbold */
+    font-size: clamp(1rem, 2vw, 1.2rem) !important; /* Ajuste responsivo */
 }
 
 /* Ajustes de fontes específicas */
 .cta h2 {
-    font-size: clamp(2rem, 5vw, 4rem); /* Ajuste responsivo */
+    font-size: clamp(2rem, 5vw, 4rem) !important; /* Ajuste responsivo */
     line-height: 1.3;
     text-align: center;
 }
 
 .cta-button {
-    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Ajuste responsivo */
+    font-size: clamp(1rem, 2.5vw, 1.2rem) !important; /* Ajuste responsivo */
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 6vw, 3.5rem); /* Ajuste responsivo */
+    font-size: clamp(2rem, 6vw, 3.5rem) !important; /* Ajuste responsivo */
     line-height: 1.2;
 }
 
 .hero-content p {
-    font-size: clamp(1rem, 2vw, 1.2rem); /* Ajuste responsivo */
+    font-size: clamp(1rem, 2vw, 1.2rem) !important; /* Ajuste responsivo */
     color: #b0b0b0;
 }
 
 .footer h3 {
-    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Ajuste responsivo */
+    font-size: clamp(1rem, 2.5vw, 1.2rem) !important; /* Ajuste responsivo */
 }
 
 .footer-bottom p {
-    font-size: clamp(0.8rem, 1.5vw, 1rem); /* Ajuste responsivo */
+    font-size: clamp(0.8rem, 1.5vw, 1rem) !important; /* Ajuste responsivo */
 }
 
 /* Ajustes de responsividade adicionais */
