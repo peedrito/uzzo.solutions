@@ -195,7 +195,7 @@
 
             /* Botão de Contato */
             .contact-button-menu {
-                font-weight: 700 !important;
+                font-weight: 700;
                 margin-left: auto;
                 /* Empurra o botão para a direita */
                 display: flex;
@@ -285,7 +285,7 @@
             }
 
             .hero-content h1 {
-                font-weight: 800 !important;
+                font-weight: 800 ;
                 margin-top: 50px;
                 max-width: 800px;
                 font-size: 3.5em;
@@ -2023,7 +2023,7 @@
 
 
             .user-bubble {
-                color: black !important;
+                color: black;
                 /* Garante que o texto será preto */
                 background: #00cc99;
                 /* Fundo azul */
