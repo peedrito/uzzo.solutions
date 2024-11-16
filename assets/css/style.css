@@ -241,7 +241,7 @@ nav {
 
     .cta-button {
         padding: 10px 20px;
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 }
 
@@ -384,7 +384,7 @@ nav {
     color: #00cc99;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 /* Ajustes para a seção de depoimentos */
@@ -444,13 +444,13 @@ nav {
 }
 
 .testimonial h3 {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .testimonial p {
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1.4;
     color: #ddd;
 }
@@ -501,11 +501,11 @@ nav {
     }
 
     .testimonials h2 {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     .testimonials p {
-        font-size: 1em;
+        font-size: 0.8em;
     }
 
     /* Esconde os botões de navegação em telas menores */
@@ -560,7 +560,7 @@ nav {
 }
 
 .service-card h3 {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     color: #fff;
     margin-bottom: 10px;
@@ -568,7 +568,7 @@ nav {
 }
 
 .service-card p {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #bbb;
 }
 
@@ -655,7 +655,7 @@ nav {
 }
 
 .about-content h2 {
-    font-size: 4em;
+    font-size: 3em;
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -666,7 +666,7 @@ nav {
 }
 
 .about-content p {
-    font-size: 1.2em;
+    font-size: 0.9em;
     margin-bottom: 30px;
     color: #bbb;
 }
@@ -1295,7 +1295,7 @@ h3.h3-new-desktop {
     padding-top: 20px;
     border-top: 1px solid #333;
     color: #bbb;
-    font-size: 0.9em;
+    font-size: 0.8em;
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 20px;
@@ -1353,7 +1353,7 @@ h3.h3-new-desktop {
 }
 
 .footer-column h4 {
-    font-size: 1.1em;
+    font-size: 1em;
     color: #00cc99;
     margin-bottom: 10px;
     text-align: center; /* Centraliza o texto do h4 */
@@ -1361,7 +1361,7 @@ h3.h3-new-desktop {
 
 .footer-column p,
 .footer-column li a {
-    font-size: 0.9em;
+    font-size: 0.8em;
     text-align: center;
     color: #bbb;
 }
@@ -1680,4 +1680,10 @@ h3.h3-new-desktop {
     .cta h2 {
         font-size: 1.5em;
     }
+}
+
+.social-icons-desktop {
+    gap: 10px;
+    margin-left: 10px;
+    margin: auto;
 }
