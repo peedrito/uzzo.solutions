@@ -180,9 +180,9 @@ const translations = {
       "Traduzindo a página para você. Qualquer dúvida ou erro, entre em contato.",
     menu: ["Início", "Feedbacks", "Serviços", "Quem somos"],
     heroTitle:
-      "Impulsionamos <span>Inovações Criativas</span> para Resultados Extraordinários",
+      "Esse é o <span>momento </span>, alcance <span>seus resultados</span>!",
     heroDescription:
-      "Na UZZO Solutions, não apenas criamos soluções digitais — nós criamos experiências que inspiram, engajam e transformam. Nosso foco é entender profundamente o seu negócio e os seus objetivos, desenvolvendo desde o design até o desenvolvimento de soluções personalizadas e impactantes.",
+    "Na UZZO Solutions, não apenas criamos soluções digitais — nós criamos experiências que inspiram, engajam e transformam.",
     contactButton: "Fale conosco!",
     testimonialsTitle: "Avaliações de clientes",
     testimonialsDescription:
