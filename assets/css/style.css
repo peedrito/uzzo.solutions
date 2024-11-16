@@ -1799,7 +1799,7 @@
     /* Cabeçalho do Chat */
     .chat-header {
         position: relative;
-        background: rgba(255, 255, 255, 0.5); /* Camada na cor #00cc99 com opacidade */
+        background: rgba(59, 59, 59, 0.5); /* Camada na cor #00cc99 com opacidade */
         backdrop-filter: blur(10px); /* Desfoque do fundo */
         color: rgb(238, 238, 238);
         display: flex;
@@ -1848,7 +1848,7 @@
     }
 
     .chat-content::-webkit-scrollbar-track {
-        background-color: #f1f1f1;
+        background-color: rgba(59, 59, 59, 0.5);
     }
 
     /* Balões de mensagens */
@@ -1929,7 +1929,7 @@
         align-items: center;
         border-top: 1px solid rgba(255, 255, 255, 0.3); /* Separador sutil */
         padding: 10px;
-        background: rgba(255, 255, 255, 0.5); /* Camada branca com opacidade */
+        background: rgba(59, 59, 59, 0.5); /* Camada branca com opacidade */
         backdrop-filter: blur(10px); /* Desfoque do fundo */
         border-radius: 0 0 20px 20px; /* Cantos arredondados na parte inferior */
     }
