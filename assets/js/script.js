@@ -760,4 +760,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => {
       updateTrackWidth();
   });
+
+  const spanCurrentYears = document.querySelectorAll(".currentYear")
+
+  spanCurrentYears.forEach(span => {
+    span.innerText = new Date().getFullYear()
+  })
 });
